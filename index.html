@@ -1,41 +1,121 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 <meta charset="UTF-8">
-<title>Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>La Perla - Il Sogno degli Ultimi</title>
 
 <style>
 
 body{
+    margin:0;
+    background:#e8e8e8;
     font-family:Arial,sans-serif;
     text-align:center;
-    background:#f0f0f0;
 }
 
-.box{
-    width:90%;
-    max-width:1000px;
-    height:300px;
-    background:green;
-    margin:20px auto;
+header{
+    background:#2e7d32;
+    color:white;
+    padding:20px;
+}
+
+.terreno{
+    position:relative;
+    width:95%;
+    max-width:1100px;
+    height:350px;
+    margin:40px auto;
+
+    background:
+    repeating-linear-gradient(
+       45deg,
+       #59b85c,
+       #59b85c 8px,
+       #63c766 8px,
+       #63c766 16px
+    );
+
+    border:5px solid #1b5e20;
     border-radius:15px;
+
+    box-shadow:0 12px 25px rgba(0,0,0,0.25);
+}
+
+.info{
+    max-width:1100px;
+    margin:auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+button{
+    padding:12px 20px;
+    font-size:18px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1b5e20;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<h1>LA PERLA... IL SOGNO DEGLI ULTIMI</h1>
+<header>
+
+<h1>🐾 LA PERLA... IL SOGNO DEGLI ULTIMI 🐾</h1>
+
+<p>Costruiamo insieme il rifugio</p>
+
+</header>
 
 <h2>🐶 TERRENO CANI</h2>
 
-<div class="box"></div>
+<div class="terreno"></div>
+
+<div class="info">
+
+<p><b>Paletti installati:</b> 90 / 200</p>
+
+<p><b>Paletti disponibili da piantare:</b> 90</p>
+
+<p><b>Cancello:</b> Non installato</p>
+
+<button>
+🪵 PIANTA UN PALETTO
+</button>
+
+</div>
+
+<br><br>
 
 <h2>🐴 TERRENO CAVALLI</h2>
 
-<div class="box"></div>
+<div class="terreno"></div>
+
+<div class="info">
+
+<p><b>Paletti installati:</b> 0 / 200</p>
+
+<p><b>Paletti disponibili da piantare:</b> 0</p>
+
+<p><b>Cancello:</b> Non installato</p>
+
+<button>
+🪵 PIANTA UN PALETTO
+</button>
+
+</div>
 
 </body>
 </html>
