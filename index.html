@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>La Perla - Il Sogno degli Ultimi</title>
 
 <style>
 
 body{
-    margin:0;
-    background:#e8e8e8;
     font-family:Arial,sans-serif;
+    background:#e8e8e8;
     text-align:center;
+    margin:0;
 }
 
 header{
@@ -23,43 +21,51 @@ header{
 }
 
 .terreno{
-    position:relative;
     width:95%;
     max-width:1100px;
     height:350px;
-    margin:40px auto;
+    margin:30px auto;
 
     background:
     repeating-linear-gradient(
-       45deg,
-       #59b85c,
-       #59b85c 8px,
-       #63c766 8px,
-       #63c766 16px
+    45deg,
+    #59b85c,
+    #59b85c 8px,
+    #63c766 8px,
+    #63c766 16px
     );
 
     border:5px solid #1b5e20;
     border-radius:15px;
 
-    box-shadow:0 12px 25px rgba(0,0,0,0.25);
+    position:relative;
+}
+
+.paletto{
+    width:6px;
+    height:20px;
+    background:#0d5d25;
+    position:absolute;
+    top:-10px;
 }
 
 .info{
-    max-width:1100px;
-    margin:auto;
     background:white;
+    width:90%;
+    max-width:900px;
+    margin:auto;
     padding:20px;
     border-radius:10px;
 }
 
 button{
-    padding:12px 20px;
-    font-size:18px;
     background:#2e7d32;
-    color:white;
     border:none;
+    color:white;
+    padding:12px 20px;
     border-radius:8px;
     cursor:pointer;
+    font-size:18px;
 }
 
 button:hover{
@@ -81,41 +87,62 @@ button:hover{
 
 <h2>🐶 TERRENO CANI</h2>
 
-<div class="terreno"></div>
+<div class="terreno" id="terrenoCani"></div>
 
 <div class="info">
 
-<p><b>Paletti installati:</b> 90 / 200</p>
+<p>
+Paletti installati:
+<span id="installati">0</span> / 200
+</p>
 
-<p><b>Paletti disponibili da piantare:</b> 90</p>
+<p>
+Paletti disponibili da piantare:
+<span id="disponibili">90</span>
+</p>
 
-<p><b>Cancello:</b> Non installato</p>
+<p>
+🚪 Cancello non installato
+</p>
 
-<button>
+<button onclick="piantaPaletto()">
 🪵 PIANTA UN PALETTO
 </button>
 
 </div>
 
-<br><br>
+<script>
 
-<h2>🐴 TERRENO CAVALLI</h2>
+let installati = 0;
+let disponibili = 90;
 
-<div class="terreno"></div>
+function piantaPaletto(){
 
-<div class="info">
+    if(disponibili <= 0){
+        alert("Nessun paletto disponibile");
+        return;
+    }
 
-<p><b>Paletti installati:</b> 0 / 200</p>
+    installati++;
+    disponibili--;
 
-<p><b>Paletti disponibili da piantare:</b> 0</p>
+    document.getElementById("installati").innerText = installati;
+    document.getElementById("disponibili").innerText = disponibili;
 
-<p><b>Cancello:</b> Non installato</p>
+    let terreno = document.getElementById("terrenoCani");
 
-<button>
-🪵 PIANTA UN PALETTO
-</button>
+    let paletto = document.createElement("div");
 
-</div>
+    paletto.className = "paletto";
+
+    paletto.style.left =
+        (installati * 5) + "px";
+
+    terreno.appendChild(paletto);
+
+}
+
+</script>
 
 </body>
 </html>
