@@ -1,101 +1,117 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>La Perla - Il Sogno degli Ultimi</title>
+<title>La Perla... Il Sogno degli Ultimi</title>
 
 <style>
 
 body{
     margin:0;
     font-family:Arial,sans-serif;
-    background:#e1e1e1;
+    background:#e8e8e8;
     text-align:center;
 }
 
 header{
     background:#2e7d32;
     color:white;
-    padding:20px;
+    padding:25px;
 }
 
-#terreno{
-    width:1000px;
-    max-width:95%;
+.contenitore{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:60px;
+    margin-top:40px;
+    margin-bottom:50px;
+}
+
+.terreno-box{
+    width:95%;
+    max-width:1100px;
+}
+
+.titolo{
+    font-size:32px;
+    font-weight:bold;
+}
+
+.mq{
+    font-size:20px;
+    color:#444;
+    margin-bottom:15px;
+}
+
+.terreno{
+    width:100%;
     height:420px;
-
-    margin:40px auto;
-
-    position:relative;
 
     background:
     repeating-linear-gradient(
-    45deg,
-    #5bbf58,
-    #5bbf58 10px,
-    #63c766 10px,
-    #63c766 20px
+       45deg,
+       #59b85c,
+       #59b85c 12px,
+       #63c766 12px,
+       #63c766 24px
     );
 
-    border:6px solid #1b5e20;
-    border-radius:20px;
+    border:5px solid #2e7d32;
+    border-radius:16px;
 
-    transform:
-    perspective(1200px)
-    rotateX(15deg);
+    box-shadow:0 20px 30px rgba(0,0,0,0.30);
 
-    box-shadow:
-    0 20px 35px rgba(0,0,0,0.35);
-}
-
-.paletto{
-
-    width:8px;
-    height:22px;
-
-    background:#0f4f1d;
-
-    position:absolute;
-
-    border-radius:2px;
+    transform:perspective(1200px) rotateX(15deg);
 }
 
 .info{
-    width:90%;
-    max-width:900px;
-
-    margin:auto;
-
+    margin-top:20px;
     background:white;
-
     padding:20px;
-
     border-radius:12px;
-
-    box-shadow:0 5px 10px rgba(0,0,0,.20);
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
-button{
+.barra{
+    width:100%;
+    background:#ddd;
+    height:30px;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
+}
 
+.riempimento{
+    height:100%;
+    background:#4caf50;
+    color:white;
+    font-weight:bold;
+    line-height:30px;
+}
+
+.pulsante{
+    display:inline-block;
+    padding:12px 20px;
+    margin:8px;
     background:#2e7d32;
     color:white;
-
-    border:none;
-
-    padding:14px 25px;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:18px;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
 }
 
-button:hover{
+.stato{
+    font-size:18px;
+    margin-top:10px;
+}
 
-    background:#1b5e20;
+.scala{
+    font-size:18px;
+    margin-bottom:40px;
 }
 
 </style>
@@ -104,33 +120,103 @@ button:hover{
 <body>
 
 <header>
-
 <h1>🐾 LA PERLA... IL SOGNO DEGLI ULTIMI 🐾</h1>
-
-<p>Costruiamo insieme il rifugio</p>
-
+<p>Costruiamo insieme i rifugi per cani e cavalli</p>
 </header>
 
-<h2>🐶 TERRENO CANI - 12.000 mq</h2>
+<div class="contenitore">
 
-<div id="terreno"></div>
+<div class="terreno-box">
+
+<div class="titolo">🐶 TERRENO CANI</div>
+
+<div class="mq">12.000 mq</div>
+
+<div class="terreno"></div>
 
 <div class="info">
 
-<p>
-Paletti installati:
-<span id="installati">0</span>/200
-</p>
+<h3>🪵 RECINZIONE CANI</h3>
 
-<p>
-Paletti disponibili da piantare:
-<span id="disponibili">90</span>
-</p>
+<p><b>Paletti acquistati:</b> 90 / 200</p>
 
-<p>
-🚪 Cancello non installato
-</p>
+<div class="barra">
+<div class="riempimento" style="width:45%;">
+45%
+</div>
+</div>
 
-<button onclick="piantaPaletto()">
-🪵 PIANTA UN PALETTO
-</button
+<p>Paletti mancanti: 110</p>
+
+<div class="stato">
+🚪 Cancello: NON ACQUISTATO
+</div>
+
+<br>
+
+<button class="pulsante">
+🪵 Dona 5 Paletti (€2,50)
+</button>
+
+<button class="pulsante">
+🚪 Dona il Cancello
+</button>
+
+</div>
+
+</div>
+
+<div class="terreno-box">
+
+<div class="titolo">🐴 TERRENO CAVALLI</div>
+
+<div class="mq">12.000 mq</div>
+
+<div class="terreno"></div>
+
+<div class="info">
+
+<h3>🪵 RECINZIONE CAVALLI</h3>
+
+<p><b>Paletti acquistati:</b> 0 / 200</p>
+
+<div class="barra">
+<div class="riempimento" style="width:0%;">
+0%
+</div>
+</div>
+
+<p>Paletti mancanti: 200</p>
+
+<div class="stato">
+🚪 Cancello: NON ACQUISTATO
+</div>
+
+<br>
+
+<button class="pulsante">
+🪵 Dona 5 Paletti (€2,50)
+</button>
+
+<button class="pulsante">
+🚪 Dona il Cancello
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="scala">
+
+📏 Terreni reali da 12.000 mq ciascuno
+
+<br><br>
+
+0 m ───────── 10 m ───────── 20 m
+
+</div>
+
+</body>
+</html>
